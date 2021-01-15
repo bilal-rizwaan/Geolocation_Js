@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getLocation()">Click</button>
+    <p id="rlt"></p>
+    <script>
+        var rlt = document.getElementById('rlt');
+            function getLocation(){
+            if(navigator.geolocation)
+            {
+                navigator.geolocation.getCurrentPosition(showpostion);
+            }
+            else{
+                rlt.innerHTML = "Not Found";
+            }
+            }
+            function showpostion(position){
+                // rlt.innerHTML="Longitude " + position.coords.longitude;
+                // rlt.innerHTML+="<br>"
+                // rlt.innerHTML+="Latitude " + position.coords.latitude;
+                var api="http://maps.googleapis.com/maps/api/geocode/json?latlng="+position.coords.longitude+","+position.coords.latitude+"&sensor=true"
+                rtl=innerHTML=api;
+                console.log(api);
+            }
+    </script>
+</body>
+</html>
